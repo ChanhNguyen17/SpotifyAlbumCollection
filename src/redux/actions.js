@@ -1,11 +1,12 @@
 import axios from 'axios';
 import { LOGIN } from './actionTypes';
 
+const CLIEND_ID = '';
+
 export const login = () => dispatch => {
     const scopes = 'user-read-private user-read-email';
-    const uri = 'https://spotify-album-collection.herokuapp.com';
-    axios.get(`https://accounts.spotify.com/authorize?response_type=code&client_id=${
-        process.env.CLIEND_ID}${scopes? `&scope=${encodeURIComponent(scopes)}`: ''}&redirect_uri=${uri}`)
+    const uri = 'http://localhost:3000/';
+    axios.get(`https://accounts.spotify.com/authorize?response_type=code&client_id=${CLIEND_ID}${scopes? `&scope=${encodeURIComponent(scopes)}`: ''}&redirect_uri=${uri}`)
         .then(response =>
             dispatch({
                 type: LOGIN,
