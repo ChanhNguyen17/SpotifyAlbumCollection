@@ -1,11 +1,20 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import axios from "axios";
 import map from "lodash/map";
+import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import { authAPI, albumAPI } from "./config";
 import hash from "./hash";
 import Album from "./Album";
 import "./App.css";
+
+const styles = () => ({
+    notchedOutline: {
+        borderWidth: 2,
+        borderColor: 'white !important'
+    }
+});
 
 class App extends React.Component {
     constructor(props) {
@@ -38,13 +47,22 @@ class App extends React.Component {
     }
 
     render() {
+        const { classes } = this.props;
         return (
             <div className="App">
                 <header className="App-header">
                     {!this.state.token && <a className="btn btn--loginApp-link" href={authAPI}>Spotify Login</a>}
                     {this.state.albums &&
                         <TextField
+                            style={{ margin: 36 }}
+                            InputLabelProps={{ style: { color: 'white' }}}
+                            InputProps={{
+                                classes: { notchedOutline: classes.notchedOutline },
+                                style: { color: 'white' }
+                            }}
+                            variant="outlined"
                             label="Search"
+                            fullWidth
                             value={this.state.search}
                             onChange={event => this.getAlbums(event, this.state.token)}
                         />
@@ -56,4 +74,8 @@ class App extends React.Component {
     }
 }
 
-export default App;
+App.propTypes = {
+    classes: PropTypes.object.isRequired
+};
+
+export default withStyles(styles)(App);

@@ -85,9 +85,14 @@ body {
   align-items: center;
   display: flex;
   height: 100%;
-  margin: 0 auto;
+  margin: 20px auto;
   justify-content: center;
   position: relative;
   width: 80%;
   z-index: 1;
+}
+
+.text-field {
+  background-color: #000;
+  color: white;
 }
