@@ -1,0 +1,29 @@
+.album-name {
+    font-size: 1.5em;
+    margin-bottom: 0.2em;
+}
+
+.artist-name {
+    margin-bottom: 1em;
+}
+
+.now-playing__status {
+    margin-bottom: 1em;
+}
+
+.album-img {
+    float: left;
+    margin-right: 10px;
+    text-align: right;
+    width: 45%;
+}
+
+.album-img img {
+    max-width: 80vmin;
+    width: 100%;
+}
+
+.side-info {
+    margin-left: 5%;
+    width: 45%;
+}
