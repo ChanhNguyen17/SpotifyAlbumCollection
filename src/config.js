@@ -1,8 +1,8 @@
+import runtimeEnv from '@mars/heroku-js-runtime-env';
+
+const env = runtimeEnv();
 const origin = window.location.origin;
-
-console.log('test--', process);
-
-export const clientId = process.env.CLIEND_ID;
+export const clientId = env.CLIEND_ID;
 export const redirect = `${origin}/redirect/`;
 export const scopes = [
     "user-top-read",
