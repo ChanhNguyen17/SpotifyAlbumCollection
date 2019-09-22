@@ -1,11 +1,8 @@
 import runtimeEnv from '@mars/heroku-js-runtime-env';
 
 const env = runtimeEnv();
-
-console.log('test--', env);
-
 const origin = window.location.origin;
-export const clientId = env.CLIEND_ID;
+export const clientId = env.REACT_APP_CLIEND_ID;
 export const redirect = `${origin}/redirect/`;
 export const scopes = [
     "user-top-read",
